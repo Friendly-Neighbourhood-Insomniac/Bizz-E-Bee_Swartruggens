@@ -2,15 +2,12 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Volume2, VolumeX } from 'lucide-react';
 import { BeeIcon } from '@/lib/icons';
 import { useModal } from '@/components/ui/modal';
 import { Button } from '@/components/ui/button';
-import { useSound } from '@/components/sound-context';
 
 export const NavBar = () => {
   const { openModal } = useModal();
-  const { soundEnabled, toggleSound } = useSound();
 
   return (
     <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b border-amber-100">
@@ -50,18 +47,6 @@ export const NavBar = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleSound}
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-              aria-label={soundEnabled ? 'Mute sounds' : 'Enable sounds'}
-            >
-              {soundEnabled ? (
-                <Volume2 size={20} className="text-gray-700" />
-              ) : (
-                <VolumeX size={20} className="text-gray-700" />
-              )}
-            </button>
-            
             <Button 
               onClick={openModal}
               className="bg-amber-400 hover:bg-amber-500 text-black font-medium px-6 py-2 rounded-full transition-all hover:shadow-lg"

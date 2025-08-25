@@ -1,24 +1,14 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { fadeUp, floatY } from '@/lib/motion';
 
 export const VideoHero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
-  const [videoMuted, setVideoMuted] = useState(true);
-
-  const toggleVideoSound = () => {
-    if (videoRef.current) {
-      const newMutedState = !videoMuted;
-      videoRef.current.muted = newMutedState;
-      setVideoMuted(newMutedState);
-    }
-  };
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -67,18 +57,6 @@ export const VideoHero = () => {
           </Button>
         </motion.div>
       </motion.div>
-
-      {/* Video Controls */}
-      <div className="absolute bottom-4 right-4 z-20">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={toggleVideoSound}
-          className="text-white hover:bg-white/20"
-        >
-          {videoMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-        </Button>
-      </div>
 
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
