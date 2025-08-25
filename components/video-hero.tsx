@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useSound } from '@/components/sound-context';
 import { fadeUp, floatY } from '@/lib/motion';
@@ -10,7 +11,7 @@ import { fadeUp, floatY } from '@/lib/motion';
 export const VideoHero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
-  const { soundEnabled } = useSound();
+  const { soundEnabled, toggleSound } = useSound();
 
   useEffect(() => {
     if (videoRef.current) {
@@ -26,15 +27,28 @@ export const VideoHero = () => {
           ref={videoRef}
           autoPlay
           loop
-          muted={!soundEnabled}
+          muted
           playsInline
-          poster="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1920"
           className="w-full h-full object-cover"
         >
+          <source src="public/Video-Background.mp4" type="video/mp4" />
           <source src="/Video-Background.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
+
+      {/* Sound Toggle Button */}
+      <button
+        onClick={toggleSound}
+        className="absolute bottom-6 right-6 z-20 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all hover:scale-110"
+        aria-label={soundEnabled ? 'Mute video' : 'Unmute video'}
+      >
+        {soundEnabled ? (
+          <Volume2 size={24} />
+        ) : (
+          <VolumeX size={24} />
+        )}
+      </button>
 
       {/* Honeycomb Pattern Overlay */}
       <div className="absolute inset-0 opacity-10" style={{
