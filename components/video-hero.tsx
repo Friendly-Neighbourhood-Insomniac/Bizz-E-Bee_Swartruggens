@@ -16,13 +16,16 @@ export const VideoHero = () => {
     if (videoRef.current) {
       const newMutedState = !videoMuted;
       videoRef.current.muted = newMutedState;
+      setVideoMuted(newMutedState);
     }
+  };
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
@@ -64,6 +67,18 @@ export const VideoHero = () => {
           </Button>
         </motion.div>
       </motion.div>
+
+      {/* Video Controls */}
+      <div className="absolute bottom-4 right-4 z-20">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={toggleVideoSound}
+          className="text-white hover:bg-white/20"
+        >
+          {videoMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+        </Button>
+      </div>
 
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
