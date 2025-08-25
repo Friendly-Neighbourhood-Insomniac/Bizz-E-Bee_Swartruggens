@@ -65,27 +65,6 @@ export const VideoHero = () => {
           >
             Enter the Local Business Hive
           </Button>
-          
-          {/* Sound Toggle Button */}
-          <div className="mt-8">
-            <button
-              onClick={toggleVideoSound}
-              className="bg-black/60 hover:bg-black/80 text-white px-6 py-3 rounded-full transition-all hover:scale-105 flex items-center space-x-2 mx-auto"
-              aria-label={videoMuted ? 'Enable video sound' : 'Mute video'}
-            >
-              {videoMuted ? (
-                <>
-                  <VolumeX size={20} />
-                  <span>Enable Sound</span>
-                </>
-              ) : (
-                <>
-                  <Volume2 size={20} />
-                  <span>Mute Video</span>
-                </>
-              )}
-            </button>
-          </div>
         </motion.div>
       </motion.div>
 
