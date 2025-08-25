@@ -16,16 +16,13 @@ export const VideoHero = () => {
     if (videoRef.current) {
       const newMutedState = !videoMuted;
       videoRef.current.muted = newMutedState;
-      setVideoMuted(newMutedState);
     }
-  };
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
-          ref={videoRef}
           autoPlay
           loop
           muted
