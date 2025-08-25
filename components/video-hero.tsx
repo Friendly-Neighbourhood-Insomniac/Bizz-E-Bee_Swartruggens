@@ -1,23 +1,24 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useSound } from '@/components/sound-context';
 import { fadeUp, floatY } from '@/lib/motion';
 
 export const VideoHero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
-  const { soundEnabled, toggleSound } = useSound();
+  const [videoMuted, setVideoMuted] = useState(true);
 
-  useEffect(() => {
+  const toggleVideoSound = () => {
     if (videoRef.current) {
-      videoRef.current.muted = !soundEnabled;
+      const newMutedState = !videoMuted;
+      videoRef.current.muted = newMutedState;
+      setVideoMuted(newMutedState);
     }
-  }, [soundEnabled]);
+  };
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -67,19 +68,19 @@ export const VideoHero = () => {
           {/* Sound Toggle Button */}
           <div className="mt-8">
             <button
-              onClick={toggleSound}
+              onClick={toggleVideoSound}
               className="bg-black/60 hover:bg-black/80 text-white px-6 py-3 rounded-full transition-all hover:scale-105 flex items-center space-x-2 mx-auto"
-              aria-label={soundEnabled ? 'Mute video' : 'Enable video sound'}
+              aria-label={videoMuted ? 'Enable video sound' : 'Mute video'}
             >
-              {soundEnabled ? (
-                <>
-                  <VolumeX size={20} />
-                  <span>Mute Video</span>
-                </>
-              ) : (
+              {videoMuted ? (
                 <>
                   <Volume2 size={20} />
                   <span>Enable Sound</span>
+                </>
+              ) : (
+                <>
+                  <VolumeX size={20} />
+                  <span>Mute Video</span>
                 </>
               )}
             </button>
