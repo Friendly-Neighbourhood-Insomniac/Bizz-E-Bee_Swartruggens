@@ -10,6 +10,12 @@ import { pageTransition, fadeUp, staggerChildren } from '@/lib/motion';
 import categories from '@/data/categories.json';
 import listings from '@/data/listings.json';
 
+export async function generateStaticParams() {
+  return categories.map((category) => ({
+    slug: category.slug,
+  }));
+}
+
 const filterOptions = [
   { label: 'Open Now', active: false },
   { label: 'Top Rated', active: true },
