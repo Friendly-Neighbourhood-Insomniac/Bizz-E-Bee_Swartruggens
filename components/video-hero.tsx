@@ -15,7 +15,12 @@ export const VideoHero = () => {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.muted = !soundEnabled;
+      // Only change muted state if user has interacted with sound toggle
+      if (soundEnabled === false) {
+        videoRef.current.muted = true;
+      } else {
+        videoRef.current.muted = false;
+      }
     }
   }, [soundEnabled]);
 
@@ -27,7 +32,7 @@ export const VideoHero = () => {
           ref={videoRef}
           autoPlay
           loop
-          muted={true}
+          muted
           playsInline
           className="w-full h-full object-cover"
         >
