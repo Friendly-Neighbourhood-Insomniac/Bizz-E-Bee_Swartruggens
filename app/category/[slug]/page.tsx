@@ -1,12 +1,8 @@
-'use client';
-
 import { notFound } from 'next/navigation';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Star } from 'lucide-react';
 import { SectionHeader } from '@/components/section-header';
 import { ListingCarousel } from '@/components/listing-carousel';
-import { pageTransition, fadeUp, staggerChildren } from '@/lib/motion';
 import categories from '@/data/categories.json';
 import listings from '@/data/listings.json';
 
@@ -74,31 +70,20 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   };
 
   return (
-    <motion.div
-      variants={pageTransition}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className="min-h-screen bg-gradient-to-b from-cream-50 to-white"
-    >
+    <div className="min-h-screen bg-gradient-to-b from-cream-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div
-          variants={staggerChildren}
-          initial="initial"
-          animate="animate"
-          className="space-y-8"
-        >
+        <div className="space-y-8">
           {/* Header */}
-          <motion.div variants={fadeUp}>
+          <div>
             <SectionHeader
               title={category.label}
               subtitle={`Discover the best ${category.label.toLowerCase()} businesses in Swartruggens`}
               centered
             />
-          </motion.div>
+          </div>
 
           {/* Filter Pills */}
-          <motion.div variants={fadeUp} className="flex justify-center">
+          <div className="flex justify-center">
             <div className="flex space-x-2 bg-white rounded-full p-2 shadow-sm border border-gray-200">
               {filterOptions.map((filter) => (
                 <button
@@ -113,15 +98,15 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                 </button>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Business Carousel */}
-          <motion.div variants={fadeUp}>
+          <div>
             <ListingCarousel category={category.slug} />
-          </motion.div>
+          </div>
 
           {/* Top Rated Businesses List */}
-          <motion.div variants={fadeUp} className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
               Top Rated {category.label} Businesses
             </h2>
@@ -149,9 +134,9 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                 </div>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
