@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Volume2, VolumeX } from 'lucide-react';
@@ -31,9 +31,9 @@ export const VideoHero = () => {
           muted
           playsInline
           className="w-full h-full object-cover"
+          poster="https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=1920"
         >
-          <source src="/Video-Background.mp4" type="video/mp4" />
-          <source src="/Video-Background.webm" type="video/webm" />
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
@@ -74,12 +74,12 @@ export const VideoHero = () => {
             >
               {videoMuted ? (
                 <>
-                  <Volume2 size={20} />
+                  <VolumeX size={20} />
                   <span>Enable Sound</span>
                 </>
               ) : (
                 <>
-                  <VolumeX size={20} />
+                  <Volume2 size={20} />
                   <span>Mute Video</span>
                 </>
               )}
