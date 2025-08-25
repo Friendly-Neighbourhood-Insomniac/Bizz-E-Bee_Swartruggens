@@ -1,0 +1,12 @@
+[
+  {"slug": "services", "label": "Services", "icon": "Wrench"},
+  {"slug": "trades", "label": "Trades", "icon": "Hammer"},
+  {"slug": "dining", "label": "Dining", "icon": "Utensils"},
+  {"slug": "shops", "label": "Shops", "icon": "Store"},
+  {"slug": "entertainment", "label": "Entertainment", "icon": "Sparkles"},
+  {"slug": "lodging", "label": "Lodging", "icon": "Hotel"},
+  {"slug": "health", "label": "Health", "icon": "Heart"},
+  {"slug": "auto", "label": "Auto", "icon": "Car"},
+  {"slug": "home-garden", "label": "Home & Garden", "icon": "Home"},
+  {"slug": "events", "label": "Events", "icon": "Calendar"}
+]
