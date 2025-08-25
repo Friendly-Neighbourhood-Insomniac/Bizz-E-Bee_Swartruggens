@@ -31,9 +31,10 @@ export const VideoHero = () => {
           muted
           playsInline
           className="w-full h-full object-cover"
-          poster="https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          poster="/Logo.jpg"
         >
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+          <source src="/Video-Background.mp4" type="video/mp4" />
+          <source src="/Video-Background.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
