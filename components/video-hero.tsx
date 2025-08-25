@@ -15,7 +15,6 @@ export const VideoHero = () => {
 
   useEffect(() => {
     if (videoRef.current) {
-      // Video should be muted unless user explicitly enabled sound
       videoRef.current.muted = !soundEnabled;
     }
   }, [soundEnabled]);
@@ -65,7 +64,7 @@ export const VideoHero = () => {
             Enter the Local Business Hive
           </Button>
           
-          {/* Sound Toggle Prompt */}
+          {/* Sound Toggle Button */}
           <div className="mt-8">
             <button
               onClick={toggleSound}
