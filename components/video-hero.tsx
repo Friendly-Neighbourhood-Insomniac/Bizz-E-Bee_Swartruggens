@@ -27,28 +27,15 @@ export const VideoHero = () => {
           ref={videoRef}
           autoPlay
           loop
-          muted
+          muted={true}
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="public/Video-Background.mp4" type="video/mp4" />
+          <source src="/Video-Background.mp4" type="video/mp4" />
           <source src="/Video-Background.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
-
-      {/* Sound Toggle Button */}
-      <button
-        onClick={toggleSound}
-        className="absolute bottom-6 right-6 z-20 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all hover:scale-110"
-        aria-label={soundEnabled ? 'Mute video' : 'Unmute video'}
-      >
-        {soundEnabled ? (
-          <Volume2 size={24} />
-        ) : (
-          <VolumeX size={24} />
-        )}
-      </button>
 
       {/* Honeycomb Pattern Overlay */}
       <div className="absolute inset-0 opacity-10" style={{
@@ -76,6 +63,27 @@ export const VideoHero = () => {
           >
             Enter the Local Business Hive
           </Button>
+          
+          {/* Sound Toggle Prompt */}
+          <div className="mt-8">
+            <button
+              onClick={toggleSound}
+              className="bg-black/60 hover:bg-black/80 text-white px-6 py-3 rounded-full transition-all hover:scale-105 flex items-center space-x-2 mx-auto"
+              aria-label={soundEnabled ? 'Mute video' : 'Enable video sound'}
+            >
+              {soundEnabled ? (
+                <>
+                  <VolumeX size={20} />
+                  <span>Mute Video</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 size={20} />
+                  <span>Enable Sound</span>
+                </>
+              )}
+            </button>
+          </div>
         </motion.div>
       </motion.div>
 
