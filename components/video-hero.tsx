@@ -31,7 +31,7 @@ export const VideoHero = () => {
           poster="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1920"
           className="w-full h-full object-cover"
         >
-          <source src="public/Video-Background.webm" type="video/webm" />
+          <source src="/Video-Background.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
