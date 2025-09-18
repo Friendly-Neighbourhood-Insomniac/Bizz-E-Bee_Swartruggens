@@ -1,12 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Star } from 'lucide-react';
 import { SectionHeader } from '@/components/section-header';
 import { ListingCarousel } from '@/components/listing-carousel';
+import { TopRatedList } from '@/components/top-rated-list';
 import { pageTransition, fadeUp, staggerChildren } from '@/lib/motion';
-import listings from '@/data/listings.json';
 
 export default function HomeGardenPage() {
   return (
@@ -36,44 +34,11 @@ export default function HomeGardenPage() {
             <ListingCarousel category="home-garden" />
           </motion.div>
 
-          <motion.div variants={fadeUp} className="bg-white rounded-2xl p-8 shadow-lg">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              Top Rated Home & Garden Businesses
-            </h2>
-            <div className="space-y-4">
-              {listings
-                .filter(listing => listing.category === 'home-garden')
-                .sort((a, b) => b.rating - a.rating)
-                .slice(0, 5)
-                .map((business, index) => (
-                  <div
-                    key={business.id}
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center space-x-4">
-                      <div className="flex items-center justify-center w-8 h-8 bg-amber-400 text-black font-bold rounded-full text-sm">
-                        {index + 1}
-                      </div>
-                      <div>
-                        <span className="font-semibold text-gray-900">{business.name}</span>
-                        <p className="text-sm text-gray-600">{business.tagline}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="flex items-center space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={14}
-                            className={i < Math.floor(business.rating) ? "text-amber-400 fill-current" : "text-gray-300"}
-                          />
-                        ))}
-                      </div>
-                      <span className="font-semibold text-gray-900">{business.rating}</span>
-                    </div>
-                  </div>
-                ))}
-            </div>
+          <motion.div variants={fadeUp}>
+            <TopRatedList
+              category="home-garden"
+              title="Top Rated Home & Garden Businesses"
+            />
           </motion.div>
         </motion.div>
       </div>

@@ -1,0 +1,19 @@
+{
+  "id": "category-prefix-001",
+  "name": "Business Name",
+  "tagline": "Concise description of the business.",
+  "category": "services",
+  "rating": 0,
+  "logo": "/images/logos/placeholder.svg",
+  "images": [
+    "https://example.com/primary-image.jpg",
+    "https://example.com/secondary-image.jpg"
+  ],
+  "badges": ["Featured"],
+  "elite": false,
+  "ctas": {
+    "call": "tel:+27000000000",
+    "wa": "https://wa.me/27000000000"
+  },
+  "isFeatured": false
+}

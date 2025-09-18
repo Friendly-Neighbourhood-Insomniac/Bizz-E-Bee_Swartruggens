@@ -81,6 +81,19 @@ A comprehensive local business directory web application built with Next.js, fea
 └── public/               # Static assets
 ```
 
+## 📋 Adding Real Business Listings
+
+1. Duplicate the template object in `data/listing-template.json`.
+2. Replace every placeholder with the real business details:
+   - Use a unique `id` that matches the category (e.g. `svc-001`).
+   - Set `category` to one of the slugs defined in `data/categories.json`.
+   - Provide at least one image URL in the `images` array.
+   - Update the `ctas` values with callable telephone numbers and WhatsApp links.
+3. Append the completed object to the array in `data/listings.json`.
+4. Optionally toggle `elite`, `badges`, and `isFeatured` to control highlighting on the site.
+
+All category and directory pages will automatically surface new entries once they are added to `data/listings.json`.
+
 ## 🎯 Key Features
 
 ### Landing Page
